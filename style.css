@@ -1,7 +1,13 @@
 body{
-     background-color:#eee4e1;
+     background-color:rgb(233, 229, 233);
      height: 1000px;
+     
+     background-size: auto;
+    
+    background-repeat: no-repeat;
+    background-size:auto;
     }
+
 	
 .myclass{
 	color:#756050;
@@ -11,11 +17,27 @@ body{
     font-family: sans-serif;
 }
 
-h1{
-    font-family: 'CabinetGrotesk-Thin';
-    padding-top: 10%;
+.slide-fade-in {
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: slideFadeIn 2s ease-out forwards;
     font-size: 100px;
     text-align: center;
+    font-family: garamond,serif;
+    color:black;
+    text-align: center;
+    font-weight: 45;
+}
+
+@keyframes slideFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 a{
@@ -24,19 +46,19 @@ a{
     font-family: sans-serif; 
 }
 .tab{
-    height: 100vh;
+    height: 100px;
     display: flex;
-    align-items: center;
+   
     flex-direction: column;
     max-width: 960px;
     min-width: 720px;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 ;
 }
 
 .tab ul{
     list-style: none;
-    justify-content: center;
+    padding-left: 0%;
     align-items:center ;
     display: flex;
 }
@@ -47,14 +69,17 @@ a{
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    padding: 16px 45px;
+    padding: 5px;
     border: 1px ;
     cursor: pointer;
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .tab ul li img{
-    max-height: 80px;
+    max-height: 18px;
     margin-left:auto;
     margin-right: auto;
-    margin-bottom: 16px;
+    margin-bottom: 2px;
 }
+
