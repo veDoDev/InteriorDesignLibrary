@@ -1,0 +1,537 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Project</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #1b1919;
+        }
+        /* Heading and Logo Styling */
+        .heading5 {
+            width: 200px;
+            margin: 45px 111px;
+            color: rgba(255, 255, 255, 0.386); /* Default color for dark backgrounds */
+            position: fixed;
+            top: 85px;
+            left: 20px;
+            cursor: default;
+            z-index: 100;
+            transition: color 0.8s ease; /* Smooth transition for color change */
+        }
+        .heading1{
+            font-size: 250px;
+            font-family: "Poiret One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            padding: 250px 290px;
+            margin: 0px 0px;
+            color: white;
+        }
+        .heading1_2{
+            font-size: 250px;
+            font-family: "Poiret One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            padding: 0px 0px;
+            margin: 0px 0px;
+            color: rgb(0, 0, 0);
+            text-align: center;
+        }
+
+
+        /* P and Div Styling */
+        .p {
+            margin: 45px 111px;
+            color: #868686;
+            cursor: default;
+            font-size: 15px;
+        }
+        .p1 {
+            color: white;
+            margin: 45px 111px;
+        }
+        .div1 {
+            padding-top: 245px;
+            padding-left: 900px;
+            width: 480px;
+            height: fit-content;
+        }
+
+        /* Logo */
+        .logo-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            clip-path: circle(0% at 50% 50%);
+            animation: revealLogo 5s ease-in-out forwards;
+            animation-delay: 2s;
+            transition: filter 0.8s ease; /* Smooth transition for logo color change */
+            filter: invert(100%);
+        }
+
+        @keyframes revealLogo {
+            0% {
+                clip-path: circle(0% at 50% 50%);
+            }
+            100% {
+                clip-path: circle(100% at 50% 50%);
+            }
+        }
+
+        #animate1 {
+            opacity: 0;
+            transform: translateY(100%);
+            animation: enterFromBottom 2s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes enterFromBottom {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Navbar Styling */
+        .navbar ul {
+            position: fixed;
+            right: 15px;
+            top: 50px;
+            display: flex;
+            flex-direction: column;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+        .navbar ul li {
+            list-style: none;
+            margin: 5px 0;
+        }
+        .navbar a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white; /* Default color for dark backgrounds */
+            transition: color 0.8s ease; /* Smooth transition for navbar link color */
+        }
+        .navbar a:hover {
+            color: #b2a069;
+        }
+        .img1 {
+            transition: filter 0.8s ease; /* Smooth transition for image color change */
+        }
+
+        /* Section Styling */
+        .section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .light-bg {
+            background-color: #f0f0f0;
+        }
+        .dark-bg {
+            background-color: #333;
+        }
+
+        /* Responsive Navbar */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: row;
+                justify-content: space-around;
+                bottom: 0;
+                top: unset;
+                right: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.8);
+                padding: 10px;
+            }
+            .navbar ul li {
+                margin: 0;
+            }
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            top: 250%;
+        }
+
+        .light-bg {
+            background-color: #f0f0f0;
+        }
+
+        .dark-bg {
+            background-color: #333;
+            color: white;
+        }
+
+        /* Sliding Image Styling */
+        .image-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1470px;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            clip-path: inset(50% 50% 50% 50%); /* Initially hidden in the center */
+            transition: clip-path 0.5s ease-out;
+        }
+
+        /* Sticky Image Positioning */
+        .section .sticky-image-container {
+            position: sticky;
+            top: 50%; /* Sticks to the middle of the viewport */
+            transform: translateY(-50%);
+        }
+        .imgbg{
+            position: absolute;
+            z-index: 0;
+            top: 59%;
+            z-index: -1;
+        }
+        .img1{
+            filter:invert(100%);
+        }
+        .loc1{
+            position: absolute;
+            top: 1300px;
+            left: 100px;
+            width: 40%;
+        }
+        .loc2{
+            position: absolute;
+            top: 1400px;
+            left: 55%;
+            width: 40%;
+        }
+        .loc3{
+            position: absolute;
+            top: 590%;
+            left: 30%;
+            width: 70%;
+            z-index: 100;
+        }
+        .text{
+            font-size: 80px;
+            font-family: "Poiret One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: white;
+        }
+        .text1{
+            color: white;
+        }
+        .container {
+            position: absolute;
+            width: 100%;
+            height: 600px;
+            max-width: 1200px;
+            margin: 10%;
+            top: 380%;
+        }
+
+        .image-info-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        /* First image and info: Image on the right, info on the left */
+        .image-info-wrapper:nth-child(1) .info {
+            order: 2;
+            text-align: right;
+            width: 40%;
+            position: relative;
+            top: 200px;
+        }
+
+        .image-info-wrapper:nth-child(1) img {
+            order: 1;
+            width: 40%;
+            position: relative;
+            top: 200px;
+        }
+
+        /* Second image and info: Image on the left, info on the right */
+        .image-info-wrapper:nth-child(2) .info {
+            order: 2;
+            text-align: left;
+            width: 40%;
+        }
+
+        .image-info-wrapper:nth-child(2) img {
+            order: 1;
+            width: 40%;
+        }
+
+        /* Third image and info: Image on the right, info on the left */
+        .image-info-wrapper:nth-child(3) .info {
+            order: 2;
+            text-align: right;
+            width: 40%;
+            position: relative;
+            top: 200px;
+        }
+
+        .image-info-wrapper:nth-child(3) img {
+            order: 1;
+            width: 40%;
+            position: relative;
+            top: 200px;
+        }
+
+        /* Image styling */
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+        }
+
+        /* Info styling */
+        .info {
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .image-info-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .info {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+        .section1 {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 500%;
+            width: 100%;
+            border: 10px;
+        }
+        .light-bg {
+            background-color: #d2c9bc;
+        }
+        footer {
+            height: 200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f6f4f1;
+            color: white;
+            padding: 0 20px; /* Horizontal padding */
+            position: absolute;
+            top: 600%;
+            width: 100%;
+            border-top: 3px ;
+            border-color: #1b1919;
+        }
+
+        .decor {
+            font-size: 50px; /* Adjust font size as needed */
+            font-family: "Cinzel Decorative", serif;
+            font-weight: 400;
+            font-style: normal;
+            color: black;
+            margin-left: 45%;
+            margin-top: 10px;
+        }
+
+        .social {
+            margin-left: auto; /* Pushes this element to the right */
+            font-size: 20px; /* Adjust font size as needed */
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="imgbg">
+        <img src="{% static 'images/proj_gen.png' %}" alt="" height="700px" width= "1500px" >
+    </div>
+    <h1 class="heading1" id="animate1">PROJECT</h1>
+    
+    <div class="logo-container">
+        <img src="{% static 'images/Logo.png' %}" alt="Logo" class="logo">
+    </div>
+
+    <div class="heading5" id="animate1">
+        <h5>INTERIOR DESIGN &<br> DECORATION</h5>
+    </div>
+
+    <nav class="navbar">
+        <ul id="animate1">
+            <li><a href="/" class="btn"><img class="img1" src="{% static "images/home-icon-vector-removebg-preview.png" %}" alt="" height="50px" width="50px"></a></li>
+            <li><a href="{% url 'about_us' %}" class="btn"><img class="img1" src="{% static 'images/OIP-removebg-preview.png' %}" alt="" height="50px" width="50px"></a></li>
+            <li><a href="{% url 'contact' %}" class="btn"><img class="img1" src="{% static 'images/46020.png' %}" alt="" height="50px" width="50px"></a></li>
+        </ul>
+    </nav>
+    <div class="loc1">
+        <h1 class="text">
+            {{ project.title }}
+        </h1>
+    </div>
+    <div class="loc2">
+        <h3 class="text1">
+            Sympathetic to its external facade, the contemporary interiors have a classic twist which complements the grandeur of this stunning home. Completed in early 2024,
+            We undertook the full interior architecture, lighting and interior design package for this impressive property.
+        </h3>
+    </div>
+    <section class="section light-bg">
+        <div class="sticky-image-container">
+            <div class="image-container">
+                <img src="{% static project.image %}" alt="Sliding Door Image" class="image">
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- First Image and Info (Image on the right, info on the left) -->
+        <div class="image-info-wrapper">
+            <div class="info">
+                <h2>FURNITURE HIGHLIGHTS</h2>
+                <p>{{project.FurnitureHighlights}}</p>
+            </div>
+            <img src="{% static 'images/furniture.png' %}" alt="Image 1">
+        </div>
+
+        <!-- Second Image and Info (Image on the left, info on the right) -->
+        <div class="image-info-wrapper">
+            <img src="{% static 'images/room_dim.png' %}" alt="Image 2">
+            <div class="info">
+                <h2>ROOM DIMENSIONS: </h2>
+                <p>{{project.Dimentions}}</p>
+            </div>
+        </div>
+
+        <!-- Third Image and Info (Image on the right, info on the left) -->
+        <div class="image-info-wrapper">
+            <div class="info">
+                <h2>ROOM HIGHLIGHTS</h2>
+                <p>{{project.RoomHighlights}}</p>
+            </div>
+            <img src="{% static 'images/gen_room.png' %}" alt="Image 3">
+        </div>
+
+    </div>
+    <section class="section1 light-bg">
+        <h1 class="heading1_2">WORK <br>WITH US</h1>
+    </section>
+    <div>
+    <p class="loc3">Send us a message to discuss your project in further detail, or for information about our services.</p>
+    </div>
+    <footer>
+        <div class="decor">Decor</div>
+        <div class="social">Follow us on Instagram</div>
+    </footer>
+
+    <script>
+        
+      
+        const observerOptions = {
+            root: null,  // viewport
+            threshold: 0.1 // Trigger when 10% of section is visible
+        };
+
+        const image = document.querySelector('.image');
+        const section = document.querySelector('.section.light-bg');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // When the section comes into view, attach the scroll event
+                    window.addEventListener('scroll', handleScroll);
+                } else {
+                    // When the section goes out of view, remove the scroll event
+                    window.removeEventListener('scroll', handleScroll);
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(section);
+
+        function handleScroll() {
+            const sectionRect = section.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Calculate how much the section is visible
+            const scrollProgress = Math.min(Math.max((windowHeight - sectionRect.top) / windowHeight, 0), 1);
+
+            // Adjust the clip-path based on the scroll position within the section
+            const clipValue = 50 - scrollProgress * 50; // From 50% (center) to 0% (fully open)
+
+            // Update clip-path for sliding door effect
+            image.style.clipPath = `inset(0 ${clipValue}% 0 ${clipValue}%)`;
+        }
+    </script>
+</body>
+</html>
