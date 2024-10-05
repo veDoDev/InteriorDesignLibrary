@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Styles */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    filter: invert(100%); /* White icons */
+    transition: filter 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+    }
+}
+
+/* Section Styling */
+.section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.light-bg {
+    background-color: #f0f0f0;
+}
+
+.dark-bg {
+    background-color: #333;
+}
+
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <ul class="nav-links">
+            <li><a href="#home"><img src="home-icon.svg" class="icon" alt="Home"> Home</a></li>
+            <li><a href="#about"><img src="about-icon.svg" class="icon" alt="About"> About</a></li>
+            <li><a href="#contact"><img src="contact-icon.svg" class="icon" alt="Contact"> Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="section">
+        <h1>Home Section</h1>
+    </section>
+    <section id="about" class="section light-bg">
+        <h1>About Section</h1>
+    </section>
+    <section id="contact" class="section dark-bg">
+        <h1>Contact Section</h1>
+    </section>
+
+    <script>
+        window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    const sections = document.querySelectorAll('.section');
+    let isDark = false;
+
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 0 && rect.bottom >= 0) {
+            if (section.classList.contains('dark-bg')) {
+                isDark = true;
+            }
+        }
+    });
+
+    if (isDark) {
+        navbar.style.backgroundColor = 'transparent';
+        navbar.querySelectorAll('a').forEach(link => {
+            link.style.color = 'white';
+            link.querySelector('.icon').style.filter = 'invert(100%)';
+        });
+    } else {
+        navbar.style.backgroundColor = 'transparent';
+        navbar.querySelectorAll('a').forEach(link => {
+            link.style.color = 'black';
+            link.querySelector('.icon').style.filter = 'invert(0%)';
+        });
+    }
+});
+
+    </script>
+</body>
+</html>

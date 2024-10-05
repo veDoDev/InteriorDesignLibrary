@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>DECOR</title>
+    <style>
+        body{
+            background-color: #f6f4f1;
+        }
+         /* Style for the search box container */
+ .search-container {
+    position: absolute;
+    margin-top: 220px;
+    margin-left: 495px;
+}
+
+/* Style for the search input box */
+.search-box {
+    width: 300px;
+    padding: 15px 60px;
+    border: 2px solid #000000;
+    border-radius: 45px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Style for the placeholder */
+.search-box::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Hover effect on the search box */
+.search-box:hover {
+    border-color: #000000;
+}
+
+/* Focus effect on the search box */
+.search-box:focus {
+    border-color: #000000;
+    box-shadow: 0 0 10px rgba(20, 20, 20, 0.5);
+}
+
+/* Style for the search button */
+.search-button {
+    background-color: #000000;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #2d2c2c;
+}
+.image-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 columns */
+            grid-gap: 10px;
+            margin: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 284px;
+        }
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: absolute;
+            top: 69px;
+            left: 161px;
+        }
+        .navbar ul{
+            position: fixed;
+            /* float: right; */
+            right: 0px;
+            /* bottom: 54px; */
+            z-index: 100;
+        }
+        .navbar ul li{
+            list-style: none;
+            /* float: right; */
+            width: fit-content;
+            /* border: 2px solid black; */
+            /* padding: 11px 25px; */
+            margin: 5px 15px;
+        }
+        .logo-container {
+  position: fixed;
+  top: 20px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+
+.logo {
+  width: 100%;
+  height: 100%;
+  clip-path: circle(0% at 50% 50%);
+  animation: revealLogo 5s ease-in-out forwards;
+  animation-delay: 2s;
+}
+
+@keyframes revealLogo {
+  0% {
+      clip-path: circle(0% at 50% 50%); 
+  }
+  100% {
+      clip-path: circle(100% at 50% 50%); 
+  }
+}
+.btn {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+    display: inline-block;
+  }
+  /* .btn::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  } */
+  /* glow */
+  .btn::before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #373737, #565656, #828385, #a0a1a4,
+    #c0c0c2, #acbabf, #1f2124, #fffacd
+    );
+    /* #FF0000, #FF7300, #FFFB00, #48FF00,
+      #00FFD5, #002BFF, #FF00C8, #FF0000 */
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 50px;
+    opacity: 0;
+  }
+
+  @keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+  }
+
+  /* hover */
+  .btn:hover::before {
+    opacity: 1;
+  }
+
+  .btn:active:after {
+    background: transparent;
+  }
+
+  .btn:active {
+    color: #000;
+    font-weight: bold;
+  }
+  #animate {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: enterFromBottom 1s ease-out forwards;
+    animation-delay: 2s; 
+}
+
+/* Keyframes for entering elements from the bottom */
+@keyframes enterFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.h5{
+  width: 200px;
+  margin: 45px 111px;
+  padding: 0px 0px;
+  top: 0px;
+  color: #b3ac9f;
+  position : fixed;
+  cursor: default;
+  
+}
+    </style>
+    </head>
+    <body>
+        <div class="page-content-wrapper" id="pageContentWrapper"></div>
+    <div class="search-container" id="animate">
+      <input type="text" class="search-box" placeholder="Search...">
+      <button class="search-button">Search</button>
+  </div>
+  <div class="h5" id="animate">
+    <h5>INTERIOR DESIGN &<br> DECORATION</h5>
+</div>
+<div class="logo-container">
+    <img src="Logo.png" alt="Logo" class="logo">
+</div>
+<nav class="navbar" id="animate">
+    <ul>
+        
+        <li><a href="Exquisite.html" class="btn"><img src="home-icon-vector-removebg-preview.png" alt="" height="50px" width="50px"></a></li>
+        <li><a href="search page.html" class="btn"><img src="search-removebg-preview.png" alt="" height="47px" width="47px"></a></li>
+        <li><a href="aboutus.html" class="btn"><img src="OIP-removebg-preview.png" alt="" height="50px" width="50px"></a></li>
+        <li><a href="contactus.html" class="btn" id="nextPage"><img src="46020.png" alt="" height="50px" width="50px"></a></li>
+        
+    </ul>
+
+</nav>
+  <div class="container" id="animate">
+    <div class="image-grid">
+        <!-- Image links, replace with your own URLs and image sources -->
+        <a href="https://example.com/page1" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 1">
+        </a>
+        <a href="https://example.com/page2" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 2">
+        </a>
+        <a href="https://example.com/page3" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 3">
+        </a>
+        <a href="https://example.com/page4" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 4">
+        </a>
+        <a href="https://example.com/page5" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 5">
+        </a>
+        <a href="https://example.com/page6" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 6">
+        </a>
+        <a href="https://example.com/page7" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 7">
+        </a>
+        <a href="https://example.com/page8" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 8">
+        </a>
+        <a href="https://example.com/page9" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 9">
+        </a>
+        <a href="https://example.com/page10" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 10">
+        </a>
+        <a href="https://example.com/page11" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 11">
+        </a>
+        <a href="https://example.com/page12" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 12">
+        </a>
+        <a href="https://example.com/page13" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 13">
+        </a>
+        <a href="https://example.com/page14" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 14">
+        </a>
+        <a href="https://example.com/page15" target="_blank">
+            <img src="https://via.placeholder.com/300" alt="Image 15">
+        </a>
+    </div>
+</div>
+<div class="transition-overlay" id="transitionOverlay"></div>
+<script>
+    window.addEventListener('load', function() {
+        const pageContentWrapper = document.getElementById('pageContentWrapper');
+        const transitionOverlay = document.getElementById('transitionOverlay');
+
+        
+        setTimeout(function() {
+            transitionOverlay.classList.add('hide');
+            pageContentWrapper.classList.add('show');
+        }, 500); 
+    });
+</script>
+</body>
+</html>
