@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Poiret+One&display=swap" rel="stylesheet">
+    <title>DECOR | Contact</title>
+    <style>
+        body{
+            background: #1d1c1c;
+        }
+
+        .h1container{
+           float: left;
+        }
+        .heading1{
+            color: white;
+            font-family: "Poiret One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 244px;
+            margin: 0px 0px;
+            padding-top: 150px;
+            padding-left: 80px;
+        }
+        .heading5{
+            width: 200px;
+            margin: 45px 111px;
+            padding: 0px 0px;
+            color: #868686;
+            position: fixed;
+            cursor: default;
+}
+        .a{
+            text-decoration: none;
+            color: white;
+            transition: color 0.4s ease;
+            padding: 0px 0px;
+            /* margin: 45px 111px; */
+        }
+        a:hover {
+            color: #b2a069; 
+        }
+        .p{
+            margin: 45px 111px;
+            padding: 0px 0px;
+            color: #868686;
+            cursor: default;
+            font-size: 15px;
+        }
+        .p1{
+            color: white;
+            margin: 45px 111px;
+        }
+        .div1{
+            padding-top: 245px;
+            padding-left: 900px;
+            width: 480px;
+            height: fit-content;
+        }
+        /* for logo */
+        .logo-container {
+            position: absolute;
+            top: 20px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            filter: invert(100%);
+            clip-path: circle(0% at 50% 50%);
+            animation: revealLogo 5s ease-in-out forwards;
+            animation-delay: 2s;
+        }
+
+        @keyframes revealLogo {
+        0% {
+            clip-path: circle(0% at 50% 50%); 
+        }
+        100% {
+            clip-path: circle(100% at 50% 50%); 
+        }
+        }
+        #animate1 {
+            opacity: 0;
+            transform: translateY(100%);
+            animation: enterFromBottom 2s ease-out forwards;
+            animation-delay: 1s; /* Delayed until EXQUISITE animation finishes */
+        }
+
+/* Keyframes for entering elements from the bottom */
+        @keyframes enterFromBottom {
+            0% {
+                transform: translateY(100%);
+                 opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .navbar ul{
+           
+            position: fixed;
+            right: 0px;
+        }
+        .navbar ul li{
+            list-style: none;
+            width: fit-content;
+            margin: 5px 15px;
+        }
+        .img1{
+            filter:invert(100%);
+        }
+        .page-content-wrapper {
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9998;
+            transition: bottom 1s ease-in-out;
+        }
+
+        .page-content-wrapper.show {
+            bottom: 0;
+        }
+
+        /* Transition Overlay - for Page 2 disappears from bottom */
+        .transition-overlay {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ece2d2;
+            z-index: 9999;
+            transition: bottom 1s ease-in-out;
+        }
+
+        .transition-overlay.hide {
+            bottom: -100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-content-wrapper" id="pageContentWrapper">
+    <div class="h1container">
+        <h1 class="heading1" id="animate1">
+            GET IN <br>TOUCH
+        </h1>
+    </div>
+    <div class="logo-container">
+        <img src="{% static 'images/Logo.png' %}" alt="Logo" class="logo">
+    </div>
+    <div class="heading5" id="animate1">
+        <h5>INTERIOR DESIGN &<br> DECORATION</h5>
+    </div>
+    <nav class="navbar" >
+        <ul id="animate1">
+            
+            <li><a href="/" class="btn"><img class="img1" src="{% static "images/home-icon-vector-removebg-preview.png" %}" alt=""height="50px" width="50px"></a></li>
+            <li><a href="{% url 'search_page' %}" class="btn"><img src="{% static "images/search_icon.png" %}" alt="" height="47px" width="47px"></a></li>
+            <li><a href="{% url 'about_us' %}" class="btn"><img class="img1" src="{% static 'images/OIP-removebg-preview.png' %}" alt="" height="50px" width="50px"></a></li>
+            <li><a href="{% url 'contact' %}" class="btn"><img class="img1" src="{% static 'images/46020.png' %}" alt="" height="50px" width="50px"></a></li>
+        </ul>
+        
+    </nav>
+    <div class="div1" id="animate1">
+        <h5 class="p">EMAIL <br> <a href="#" class="a">INFO@DECOR-DESIGN.COM</a></h5>
+
+        <h5 class="p">OFFICE <br> <a href="#" class="a">(+91) 9833878888</a></h5>
+        
+        <h5 class="p">OFFICE <br> <a href="#" class="a">(+91) 9833878888</a></h5>
+    
+        <p class="p1">SEND US A MESSAGE <br>To discuss your project in further detail, or for information about the services we offer.</p>
+    </div>
+    </div>
+    <div class="transition-overlay" id="transitionOverlay"></div>
+</body>
+<script>
+    window.addEventListener('load', function() {
+        const pageContentWrapper = document.getElementById('pageContentWrapper');
+        const transitionOverlay = document.getElementById('transitionOverlay');
+
+        // Start both animations: Page 2 content slides up and overlay slides down
+        setTimeout(function() {
+            transitionOverlay.classList.add('hide');
+            pageContentWrapper.classList.add('show');
+        }, 500); // Start after a short delay to sync with the loading of the page
+    });
+</script>
+</html>

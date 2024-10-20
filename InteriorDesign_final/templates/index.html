@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>DECOR</title>
+    <style>
+        body{
+            background-color: #f6f4f1;
+        }
+        .heading{
+            font-family: "Cinzel Decorative", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 335px ;
+            padding: 0px 84px;
+            position: absolute;
+            margin-top: 200px;
+            cursor: default;
+        }
+        .heading span {
+            display: inline-block;
+            opacity: 0;
+            animation: revealLetter 3s ease-out forwards;
+        }
+        .heading span:nth-child(1) { animation-delay: 0.1s; }
+        .heading span:nth-child(2) { animation-delay: 0.2s; }
+        .heading span:nth-child(3) { animation-delay: 0.3s; }
+        .heading span:nth-child(4) { animation-delay: 0.4s; }
+        .heading span:nth-child(5) { animation-delay: 0.5s; }
+        /* .heading span:nth-child(6) { animation-delay: 0.6s; } */
+        /* .heading span:nth-child(7) { animation-delay: 0.7s; }
+        .heading span:nth-child(8) { animation-delay: 0.8s; }
+        .heading span:nth-child(9) { animation-delay: 0.9s; } */
+        @keyframes revealLetter {
+    0% {
+        clip-path: inset(0 50% 0 50%);
+        opacity: 0;
+    }
+    50% {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+        /* .navbar ul li a{
+            
+            
+        } */
+        .navbar ul{
+           position: fixed;
+           right: 0px;
+        }
+        .navbar ul li{
+            list-style: none;
+            /* float: right; */
+            width: fit-content;
+            /* border: 2px solid black; */
+            /* padding: 11px 25px; */
+            margin: 5px 15px;
+        }
+        #search{
+            float: right;
+            border-radius: 15px;
+            padding: 0px 0px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="page-content-wrapper" id="pageContentWrapper"></div>
+    <!-- <h1 class="heading">E</h1> -->
+    <h1 class="heading"><span>D</span><span>E</span><span>C</span><span>O</span><span>R</span></h1>
+    <div class="h5" id="animate">
+        <h5>INTERIOR DESIGN &<br> DECORATION</h5>
+    </div>
+    <div class="logo-container">
+        <img src="static/images/Logo.png" alt="Logo" class="logo">
+    </div>
+    <nav class="navbar" id="animate">
+        <ul>
+            
+            <li><a href="" class="btn"><img src="static/images/home-icon-vector-removebg-preview.png" alt="" height="50px" width="50px"></a></li>
+            <li><a href="{% url 'search_page' %}" class="btn"><img src="static/images/search_icon.png" alt="" height="47px" width="47px"></a></li>
+            <li><a href="{% url 'about_us' %}" class="btn"><img src="static/images/OIP-removebg-preview.png" alt="" height="50px" width="50px"></a></li>
+            <li><a href="{% url 'contact' %}" class="btn" id="nextPage"><img src="static/images/46020.png" alt="" height="50px" width="50px"></a></li>
+        </ul>
+        
+    </nav>
+    <!-- <div class="search-container">
+      <input type="text" class="search-box" placeholder="Search...">
+      <button class="search-button">Search</button>
+  </div> -->
+  <div class="container">
+    <a href="{% url 'page' 1 %}" class="btn1">
+        <img src="static/images/Image-1.jpg" alt="Image 1" class="btn">
+        <div class="image-name">PROJECT 1</div></a>
+    <a href="{% url 'page' 2 %}" class="btn1">
+        <img src="static/images/Image-2.jpg" alt="Image 2" class="btn">
+        <div class="image-name">PROJECT 2</div></a>
+    <a href="{% url 'page' 3 %}" class="btn1">
+        <img src="static/images/Image-3.jpg" alt="Image 3" class="btn">
+        <div class="image-name">PROJECT 3</div></a>
+    <a href="{% url 'page' 4 %}" class="btn1">
+        <img src="static/images/Image-4.jpg" alt="Image 4" class="btn">
+        <div class="image-name">PROJECT 4</div></a>
+    <a href="{% url 'page' 5 %}" class="btn1">
+        <img src="static/images/Image-5.jpg" alt="Image 5" class="btn">
+        <div class="image-name">PROJECT 5</div></a>
+    <a href="{% url 'page' 6 %}" class="btn1">
+        <img src="static/images/Image-6.jpg" alt="Image 6" class="btn">
+        <div class="image-name">PROJECT 6</div></a>
+    <a href="{% url 'page' 7 %}" class="btn1">
+        <img src="static/images/Image-7.jpg" alt="Image 7" class="btn">
+        <div class="image-name">PROJECT 7</div></a>
+    <a href="{% url 'page' 8 %}" class="btn1">
+        <img src="static/images/Image-8.jpg" alt="Image 8" class="btn">
+        <div class="image-name">PROJECT 8</div></a>
+</div>
+</div>
+<div class="transition-overlay" id="transitionOverlay"></div>
+<script>
+    window.addEventListener('load', function() {
+        const pageContentWrapper = document.getElementById('pageContentWrapper');
+        const transitionOverlay = document.getElementById('transitionOverlay');
+
+        
+        setTimeout(function() {
+            transitionOverlay.classList.add('hide');
+            pageContentWrapper.classList.add('show');
+        }, 500); 
+    });
+</script>
+</body>
+</html>
